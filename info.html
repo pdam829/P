@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDAM Kota - Informasi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background: #0073e6;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        header img {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+            display: none;
+            flex: 1;
+        }
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .contact-info {
+            text-align: left;
+        }
+        iframe {
+            border: 0;
+            width: 400px;
+            height: 300px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #0073e6;
+            color: white;
+            margin-top: auto;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="Logo.png" alt="PDAM Kota Logo">
+        <h1>Selamat Datang di PDAM Kota</h1>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('home')">Beranda</a></li>
+                <li><a onclick="showSection('about')">Profil</a></li>
+                <li><a onclick="showSection('services')">Layanan</a></li>
+                <li><a onclick="showSection('news')">Berita</a></li>
+                <li><a onclick="showSection('contact')">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" style="display: block;">
+        <h2>Informasi Terkini PDAM</h2>
+        <p>Cek pengumuman terbaru seputar layanan air bersih.</p>
+        <img src="terkini.jpg" alt="Promo PDAM">
+    </section>
+
+    <section id="about">
+        <h2>Profil PDAM</h2>
+        <p>PDAM Kota adalah penyedia layanan air bersih terpercaya yang berkomitmen menyediakan air berkualitas untuk masyarakat.</p>
+        <p><b>Visi:</b> Menjadi penyedia layanan air bersih terbaik di Indonesia.</p>
+        <p><b>Misi:</b> Meningkatkan kualitas air dan pelayanan bagi seluruh pelanggan.</p>
+    </section>
+
+    <section id="services">
+        <h2>Layanan Kami</h2>
+        <ul>
+            <li>Pemasangan Sambungan Baru</li>
+            <li>Pengecekan Kualitas Air</li>
+            <li>Perbaikan Kebocoran Pipa</li>
+            <li>Pembayaran Tagihan Offline</li>
+        </ul>
+    </section>
+
+    <section id="news" class="news">
+        <h2>Berita & Pengumuman</h2>
+        <ul id="news-list"></ul>
+        <img src="berita.jpg" alt="Berita PDAM">
+    </section>
+
+    <section id="contact">
+        <h2>Hubungi Kami</h2>
+        <div class="contact-container">
+            <iframe 
+                src="https://maps.google.com/maps?q=-7.8162,112.0117&hl=es;z=14&output=embed" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="contact-info">
+                <p><b>Email:</b> info@pdamkota.id</p>
+                <p><b>Telepon:</b> (021) 123456</p>
+                <p><b>Alamat:</b> Jl. Air Bersih No. 1, Kota Anda</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 PDAM Kota. Hak Cipta Dilindungi.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            let sections = document.querySelectorAll("section");
+            sections.forEach(section => section.style.display = "none");
+            document.getElementById(sectionId).style.display = "block";
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const newsList = document.getElementById("news-list");
+
+            const news = [
+                "🔹 Pemeliharaan jaringan air di wilayah A pada 1 Maret 2024.",
+                "🔹 Gangguan suplai air di daerah B akibat cuaca ekstrem.",
+                "🔹 PDAM menghadirkan layanan baru untuk pelanggan."
+            ];
+
+            news.forEach(item => {
+                let li = document.createElement("li");
+                li.textContent = item;
+                newsList.appendChild(li);
+            });
+        });
+    </script>
+
+</body>
+</html>
